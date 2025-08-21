@@ -1,0 +1,25 @@
+{
+    "Region3Extended": {
+        "last-updated": "2024",
+        "description": "A wrapper for the Region3 class implementing easy, performant, and persistent spacial query.",
+        "source": "/lua/Region3Extended.lua",
+        "dependencies": {
+            "Signal": {
+                "source": "https://sleitnick.github.io/RbxUtil/api/Signal/",
+                "version": "2.0.1 (Knit)"
+            }
+        }
+    },
+
+    "geometry.ts": {
+        "last-updated": "8-21-2025",
+        "description": "Geometry primitive objects, algorithms, EditableMesh debugging functions, etc.",
+        "source": "/roblox-ts/geometry.ts",
+        "dependencies": {
+            "roblox-ts": {
+                "source": "https://github.com/roblox-ts/roblox-ts",
+                "version": "3.0.0"
+            }
+        }
+    }
+}

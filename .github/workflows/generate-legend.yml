@@ -26,10 +26,12 @@ jobs:
       - name: generate directory index
         run: python .github/scripts/gdi.py
 
-      - name: commit & push directory index
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add legend.json
-          git commit -m "Generated directory index [skip ci]" || echo "No changes to commit"
-          git push
+      - name: deploy legend to pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          keep_files: true
+          enable_jekyll: false
+          publish_branch: gh-pages
+          destination_dir: .

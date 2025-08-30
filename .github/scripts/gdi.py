@@ -1,10 +1,10 @@
 import os, json, datetime
 
-ignore = {".git", ".github", "__pycache__"}
+ignore = {".git", ".github", "__pycache__", ".DS_Store"}
 
 modules = []
 for item in os.listdir("./modules"):
-    if os.path.isdir(item) and item not in ignore:
+    if os.path.isdir(os.path.join("./modules", item)) and item not in ignore:
         modules.append({"name": item, "path": f"modules/{item}/"})
 
 legend = {

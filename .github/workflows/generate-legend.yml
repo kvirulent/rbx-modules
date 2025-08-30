@@ -35,6 +35,3 @@ jobs:
           enable_jekyll: false
           publish_branch: gh-pages
           destination_dir: .
-          exclude_assets: |
-            .github/**
-            LICENSE

@@ -1,3 +1,4 @@
+# Collect all modules and dump to json
 import os, json, datetime
 
 ignore = {".git", ".github", "__pycache__", ".DS_Store"}

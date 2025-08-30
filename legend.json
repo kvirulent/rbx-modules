@@ -1,0 +1,13 @@
+{
+  "last_updated": "2025-08-30T20:27:40.677087Z",
+  "modules": [
+    {
+      "name": "geometry.ts",
+      "path": "modules/geometry.ts/"
+    },
+    {
+      "name": "Region3Extended.lua",
+      "path": "modules/Region3Extended.lua/"
+    }
+  ]
+}

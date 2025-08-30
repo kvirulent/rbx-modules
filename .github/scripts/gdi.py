@@ -6,9 +6,22 @@ ignore = {".git", ".github", "__pycache__", ".DS_Store"}
 modules = []
 for item in os.listdir("./modules"):
     if os.path.isdir(os.path.join("./modules", item)) and item not in ignore:
-        with open(os.path.join("./modules", item, "meta.json")) as f:
-            meta = json.load(f)
-            modules.append({"name": item, "path": f"modules/{item}/", "last_updated": meta.last_updated, "version": meta.version})
+        try:
+            with open(os.path.join("./modules", item, "meta.json")) as f:
+                meta = json.load(f)
+
+            modules.append({
+                "name": item, 
+                "path": f"modules/{item}/", 
+                "last_updated": meta['last_updated'], 
+                "version": meta['version']
+            })
+        except FileNotFoundError:
+            print(f"Metadata for {item} was not found.")
+        except json.JSONDecodeError as e:
+            print(f"Metadata for {item} is malformed.\n At {e.lineno},{e.colno}, error: {e.msg}")
+        except Exception as e:
+            print(f"Failed to build entry for {item}: \n {e}")
 
 legend = {
     "last_updated": datetime.datetime.utcnow().isoformat() + "Z",

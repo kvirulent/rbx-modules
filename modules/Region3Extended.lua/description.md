@@ -1,0 +1,1 @@
+# A wrapper for the Region3 class implementing easy, performant, and persistent spacial query.

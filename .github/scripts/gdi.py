@@ -1,12 +1,14 @@
 # Collect all modules and dump to json
-import os, json, datetime, shutil
+import os, json, datetime, shutil, json
 
 ignore = {".git", ".github", "__pycache__", ".DS_Store"}
 
 modules = []
 for item in os.listdir("./modules"):
     if os.path.isdir(os.path.join("./modules", item)) and item not in ignore:
-        modules.append({"name": item, "path": f"modules/{item}/"})
+        with open(os.path.join("./modules", item, "meta.json")) as f:
+            meta = json.load(f)
+            modules.append({"name": item, "path": f"modules/{item}/", "last_updated": meta.last_updated, "version": meta.version})
 
 legend = {
     "last_updated": datetime.datetime.utcnow().isoformat() + "Z",
